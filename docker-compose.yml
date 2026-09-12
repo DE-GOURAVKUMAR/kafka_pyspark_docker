@@ -51,9 +51,11 @@ services:
       - "4040:4040"
     environment:
       JUPYTER_ENABLE_LAB: "yes"
+      JUPYTER_SERVER_APP_ROOT_DIR: "/home/jovyan"
       PYSPARK_SUBMIT_ARGS: "--packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 pyspark-shell"
     volumes:
-      - ./notebooks:/home/jovyan/work
+      - /Users/princekumar/Downloads/kafka_pyspark_docker/notebooks:/home/jovyan/notebooks
+      - /Users/princekumar/Downloads/source_data:/home/jovyan/source_data
     networks:
       - data-network
   kafka-ui:
